@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { Card, CardHeader, CardBody, CardText } from 'reactstrap';
 
 class App extends Component {
   state = {
@@ -25,10 +26,12 @@ class App extends Component {
     return (
       <div>
         {this.state.todos.map(item => (
-          <div key={item.id}>
-            <h1>{item.title}</h1>
-            <p>{item.body}</p>
-          </div>
+          <Card className="text-white bg-dark mb-3" style={{maxWidth:'18rem'}} key={item.id}>
+          <CardHeader >{item.title}</CardHeader>
+          <CardBody>
+            <CardText>{item.body}</CardText>
+          </CardBody>
+        </Card>
         ))}
       </div>
     );
